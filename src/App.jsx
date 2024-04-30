@@ -1,33 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Country from './Country'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const countryData = [
+    {
+      name: 'Mexico',
+      states: [
+        {
+          name: 'Jalisco',
+          cities: ['Guadalajara', 'Puerto Vallarta', 'Zapopan']
+        },
+        {
+          name: 'Nuevo León',
+          cities: ['Monterrey', 'San Pedro Garza García', 'Santa Catarina']
+        },
+        {
+          name: 'Quintana Roo',
+          cities: ['Cancún', 'Playa del Carmen', 'Tulum']
+        },
+        {
+          name: 'Puebla',
+          cities: ['Puebla City', 'Cholula', 'Tehuacán']
+        },
+        {
+          name: 'Oaxaca',
+          cities: ['Oaxaca City', 'Puerto Escondido', 'Huatulco']
+        },
+      ]
+    },
+    {
+      name: 'USA',
+      states: [
+        {
+          name: 'California',
+          cities: ['Los Angeles', 'San Francisco', 'San Diego']
+        },
+        {
+          name: 'New York',
+          cities: ['New York City', 'Buffalo', 'Rochester']
+        },
+        {
+          name: 'Texas',
+          cities: ['Houston', 'Austin', 'Dallas']
+        },
+        {
+          name: 'Kansas',
+          cities: ['Manhattan', 'Topeka', 'Wichita']
+        },
+        {
+          name: 'Illinois',
+          cities: ['Chicago', 'Springfield', 'Aurora']
+        },
+      ]
+    },
+  ]
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {countryData.map(country =>
+        <Country key={country.name} country={country} />
+      )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
